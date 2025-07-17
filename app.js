@@ -6,21 +6,22 @@ require('dotenv').config();
 
 const app = express();
 
-// ✅ Define o caminho correto da pasta views
+// Views e engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB conectado"))
   .catch(err => console.error("Erro no MongoDB:", err));
 
+// Middlewares
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: 'verificacao', resave: false, saveUninitialized: false }));
 
-// ✅ Define rotas
+// Rotas
 app.use('/', require('./routes/auth'));
 
-app.listen(process.env.PORT, () => {
-  console.log(`🌐 Site rodando em http://localhost:${process.env.PORT}`);
-});
+// ✅ Exporta para funcionar na Vercel
+module.exports = app;
