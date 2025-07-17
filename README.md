@@ -1,129 +1,163 @@
 # 🔒 Verificação Discord OAuth2 — Site & Bot
 
-![Node.js](https://img.shields.io/badge/Node.js-16%2B-green?logo=node.js) ![Discord](https://img.shields.io/badge/Discord-Verified-blue?logo=discord) ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?logo=mongodb) ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Node.js](https://img.shields.io/badge/Node.js-16%2B-green?logo=node.js) ![Discord](https://img.shields.io/badge/Discord-Verified-blue?logo=discord) ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?logo=mongodb) ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg) ![Express](https://img.shields.io/badge/Express.js-4.x-lightgrey?logo=express)
 
 ---
 
 <div align="center">
 
-[![Verificação Discord - Demo](https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif)](https://github.com/seuusuario/seu-repo)
+[![Verificação Discord - Demo](https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif)](https://github.com/THZIMX/Site-Auth2)
 
 </div>
 
 ---
 
-## ✨ Funcionalidades
+## ✨ Funcionalidades Principais
 
-- 🔑 **Autenticação segura** via OAuth2 do Discord (`identify`, `guilds`, `guilds.join`, `email`)  
-- 🤖 **Bot automático** que adiciona usuários ao servidor e atribui cargos  
-- 💾 **Persistência de dados** com MongoDB  
-- 🌐 **Interface web responsiva** para facilitar a verificação  
-- ⚙️ Configuração simples via `.env`
+- **🔐 Autenticação Segura**  
+  Integração com OAuth2 do Discord utilizando os escopos `identify`, `guilds`, `guilds.join` e `email`.
+
+- **🤖 Bot Automatizado**  
+  - Adiciona usuários automaticamente ao servidor Discord  
+  - Atribui cargos de verificação  
+  - Gerencia entrada de membros  
+
+- **💾 Armazenamento de Dados**  
+  - Persistência de informações com MongoDB Atlas  
+  - Modelos otimizados para performance  
+
+- **🌐 Interface Web Moderna**  
+  - Design responsivo para desktop e mobile  
+  - Fluxo de autenticação intuitivo  
+
+- **⚡ Configuração Simplificada**  
+  - Setup rápido via variáveis de ambiente  
+  - Documentação clara para deployment  
 
 ---
 
-## 🚀 Como começar
+## 🚀 Guia de Instalação
 
-### Pré-requisitos
+### 📋 Pré-requisitos
 
-- [Node.js](https://nodejs.org/) v16 ou superior  
+- Node.js v16+ [Download](https://nodejs.org/)  
 - Conta no [Discord Developer Portal](https://discord.com/developers/applications)  
-- MongoDB Atlas ou local
+- MongoDB Atlas (recomendado) ou instalação local  
+- Git para controle de versão  
 
 ---
 
-### Passos para rodar
+### 🛠 Configuração Inicial
 
 ```bash
 # Clone o repositório
-git clone https://github.com/THZIMX/Site-Auth2/tree/main
-cd seu-repo
+git clone https://github.com/THZIMX/Site-Auth2.git
+cd Site-Auth2
 
 # Instale as dependências
-npm install```
+npm install
+```
 
+### ⚙ Configuração de Ambiente
 
-### Configuração do ambiente
+1. Renomeie `.env.example` para `.env`  
+2. Preencha com suas credenciais:
 
-Crie um arquivo .env baseado no .env.example:
+```env
+# Discord
+DISCORD_CLIENT_ID=seu_client_id
+DISCORD_CLIENT_SECRET=seu_client_secret
+DISCORD_BOT_TOKEN=seu_bot_token
+DISCORD_REDIRECT_URI=http://localhost:3000/auth/callback
 
-DISCORD_CLIENT_ID=ID_DO_BOT
-DISCORD_CLIENT_SECRET=CLIENT_SECRET_DO_BOT
-DISCORD_BOT_TOKEN=TOKEN_DO_BOT
-DISCORD_REDIRECT_URI=http://SEU_DOMINIO:3000/callback
-GUILD_ID=ID_SERVIDOR_PRINCIPAL
-VERIFIED_ROLE_ID=CARGO_VERIFICADO
-MONGO_URI=LINK_MONGODB
+# Servidor
+GUILD_ID=id_do_seu_servidor
+VERIFIED_ROLE_ID=id_do_cargo_verificado
+
+# Banco de Dados
+MONGO_URI=sua_string_de_conexao_mongodb
+
+# Aplicação
 PORT=3000
+SESSION_SECRET=sua_chave_secreta
+```
 
-Configure no Discord Developer Portal:
-
-Redirect URI igual ao DISCORD_REDIRECT_URI
-
-Escopos: identify, guilds, guilds.join, email
-
-
+3. No Discord Developer Portal:  
+   - Adicione o Redirect URI (igual ao `DISCORD_REDIRECT_URI`)  
+   - Habilite os escopos: `identify`, `guilds`, `guilds.join`, `email`  
 
 ---
 
-▶️ ###Rodando o projeto
+## ▶ Execução do Projeto
 
+Inicie os serviços em terminais separados:
+
+```bash
+# Servidor Web
 npm start
+
+# Bot Discord
 npm run bot
-Abra no navegador: http://localhost:3000 (ou sua porta configurada).
+```
 
-
----
-
-🗂 Estrutura do projeto
-
-/bot         # Código do bot Discord
-/site        # Código do site de verificação OAuth2
-/database.   # conexão MongoDB
-.env.example # Exemplo de variáveis de ambiente
-README.md    # Documentação
-
+Acesse no navegador:  
+👉 [http://localhost:3000](http://localhost:3000)
 
 ---
 
-🤝 ###Contribuições
+## 🏗 Estrutura do Projeto
 
-Contribuições são muito bem-vindas!
-
-1. Faça um fork
-
-
-2. Crie sua branch (git checkout -b minha-feature)
-
-
-3. Faça commit das mudanças (git commit -m "Minha feature")
-
-
-4. Envie para o repositório (git push origin minha-feature)
-
-
-5. Abra um Pull Request
-
-
-
+```
+📦 Site-Auth2
+├── 📂 bot               # Código do bot Discord
+│   ├── commands        # Comandos slash
+│   ├── events          # Event handlers
+│   └── index.js        # arquivo principal
+├── 📂 site              # Aplicação web
+│   ├── routes          # Rotas Express
+│   ├── views           # Templates (EJS/Pug)
+│   └── public          # css do site
+├── 📂 database          # Modelos MongoDB
+|    └── models
+├── 📄 .env.example      # Template de configuração
+└── 📄 README.md         # Documentação
+```
 
 ---
 
-📄 ###Licença
+## 🤝 Como Contribuir
 
-MIT License © THZIMX
-
+1. **Fork** o projeto  
+2. Crie uma branch:  
+   ```bash
+   git checkout -b feature/nova-funcionalidade
+   ```
+3. Faça commit das alterações:  
+   ```bash
+   git commit -m "Adiciona nova funcionalidade"
+   ```
+4. Envie para o repositório:  
+   ```bash
+   git push origin feature/nova-funcionalidade
+   ```
+5. Abra um **Pull Request**
 
 ---
 
-📬 ###Contato
+## 📜 Licença
 
-Discord: theeuss_x
-
-
+Distribuído sob licença MIT. Veja o arquivo `LICENSE` para mais informações.
 
 ---
 
-<div align="center">✨ Obrigado por usar o sistema de verificação Discord OAuth2! 🚀
+## 📩 Contato
 
+- **Discord**: theeuss_x  
+- **GitHub**: [@THZIMX](https://github.com/THZIMX) 
+
+---
+
+<div align="center">
+✨ Obrigado por utilizar nosso sistema de verificação!  
+🚀 Contribuições são sempre bem-vindas!
 </div>
