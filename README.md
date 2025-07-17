@@ -43,7 +43,7 @@ cd seu-repo
 npm install```
 
 
-Configuração do ambiente
+### Configuração do ambiente
 
 Crie um arquivo .env baseado no .env.example:
 
@@ -66,10 +66,10 @@ Escopos: identify, guilds, guilds.join, email
 
 ---
 
-▶️ Rodando o projeto
+▶️ ###Rodando o projeto
 
 npm start
-
+npm run bot
 Abra no navegador: http://localhost:3000 (ou sua porta configurada).
 
 
@@ -79,13 +79,14 @@ Abra no navegador: http://localhost:3000 (ou sua porta configurada).
 
 /bot         # Código do bot Discord
 /site        # Código do site de verificação OAuth2
+/database.   # conexão MongoDB
 .env.example # Exemplo de variáveis de ambiente
 README.md    # Documentação
 
 
 ---
 
-🤝 Contribuições
+🤝 ###Contribuições
 
 Contribuições são muito bem-vindas!
 
@@ -108,14 +109,14 @@ Contribuições são muito bem-vindas!
 
 ---
 
-📄 Licença
+📄 ###Licença
 
 MIT License © THZIMX
 
 
 ---
 
-📬 Contato
+📬 ###Contato
 
 Discord: theeuss_x
 
