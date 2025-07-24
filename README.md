@@ -1,6 +1,6 @@
 # 🔒 Verificação Discord OAuth2 — Site & Bot
 
-![Node.js](https://img.shields.io/badge/Node.js-16%2B-green?logo=node.js) ![Discord](https://img.shields.io/badge/Discord-Verified-blue?logo=discord) ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?logo=mongodb) ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg) ![Express](https://img.shields.io/badge/Express.js-4.x-lightgrey?logo=express)
+![Node.js](https://img.shields.io/badge/Node.js-20%2B-green?logo=node.js) ![Discord](https://img.shields.io/badge/Discord-Verified-blue?logo=discord) ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?logo=mongodb) ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg) ![Express](https://img.shields.io/badge/Express.js-4.x-lightgrey?logo=express)
 
 ---
 
