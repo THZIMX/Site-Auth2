@@ -9,7 +9,7 @@ const app = express();
 
 // Views e engine
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
 
 // MongoDB
 mongoose.connect(process.env.MONGO_URI)
